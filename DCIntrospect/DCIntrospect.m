@@ -994,7 +994,7 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 		switch ([value intValue])
 		{
 			case 0: return @"UITextAlignmentLeft";
-			case 1: return @"UITextAlignmentCenter";
+			case 1: return @"NSTextAlignmentCenter";
 			case 2: return @"UITextAlignmentRight";
 			default: return nil;
 		}
@@ -1003,7 +1003,7 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 	{
 		switch ([value intValue])
 		{
-			case 0: return @"UILineBreakModeWordWrap";
+			case 0: return @"NSLineBreakByWordWrapping";
 			case 1: return @"UILineBreakModeCharacterWrap";
 			case 2: return @"UILineBreakModeClip";
 			case 3: return @"UILineBreakModeHeadTruncation";
@@ -1448,7 +1448,8 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 			[objectString appendFormat:@"    autoresizingMask: %@\n", [self describeProperty:@"autoresizingMask" value:[NSNumber numberWithInt:view.autoresizingMask]]];
 			[objectString appendFormat:@"    autoresizesSubviews: %@\n", (view.autoresizesSubviews) ? @"YES" : @"NO"];
 			[objectString appendFormat:@"    contentMode: %@ | ", [self describeProperty:@"contentMode" value:[NSNumber numberWithInt:view.contentMode]]];
-			[objectString appendFormat:@"contentStretch: %@\n", NSStringFromCGRect(view.contentStretch)];
+      // iOS6 Deprecation - MMA Feb 25 2013
+//			[objectString appendFormat:@"contentStretch: %@\n", NSStringFromCGRect(view.contentStretch)];
 			[objectString appendFormat:@"    backgroundColor: %@\n", [self describeColor:view.backgroundColor]];
 			[objectString appendFormat:@"    alpha: %.2f | ", view.alpha];
 			[objectString appendFormat:@"opaque: %@ | ", (view.opaque) ? @"YES" : @"NO"];
